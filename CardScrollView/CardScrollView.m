@@ -29,14 +29,13 @@
             _cardPosition = view.frame.origin;
             
         }
-        //_offsetLegde = 0;//(WIDTH - _cardSize.width) / 2 - DIFF;
         
         self.frame = CGRectMake(point.x, point.y, WIDTH, _cardSize.height);
         
         CGRect scrollFrame;
         scrollFrame.origin.x = 0;
         scrollFrame.origin.y = 0;
-        scrollFrame.size.width = _cardSize.width /*+ _offsetLegde*/ ;
+        scrollFrame.size.width = _cardSize.width ;
         scrollFrame.size.height = _cardSize.height;
         
         _scrollView = [[UIScrollView alloc] initWithFrame:scrollFrame];
@@ -66,7 +65,7 @@
     _scrollView.clipsToBounds = NO;
     [_scrollView setShowsHorizontalScrollIndicator:NO];
     
-    CGFloat originX = /*_offsetLegde +*/ DIFF;
+    CGFloat originX = DIFF;
     _offsetCurrentView = originX;
     
     for (int i = 0; i < [_sliderViews count]; i++) {
@@ -88,14 +87,14 @@
         
         [_scrollView addSubview:view];
         
-        originX = originX + _cardSize.width /*+ _offsetLegde*/;
+        originX = originX + _cardSize.width;
         
     }
     
     [_scrollView setContentSize:CGSizeMake(originX, _cardSize.height)];
     [_scrollView setContentOffset:CGPointMake(0, 0)];
     [self addSubview:_scrollView];
-    [_scrollView scrollRectToVisible:CGRectMake(0,0,_cardSize.width /*+ _offsetLegde*/,_cardSize.height) animated:NO];
+    [_scrollView scrollRectToVisible:CGRectMake(0,0,_cardSize.width,_cardSize.height) animated:NO];
     
 }
 

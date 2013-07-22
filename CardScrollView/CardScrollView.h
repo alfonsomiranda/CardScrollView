@@ -17,7 +17,6 @@
     NSInteger _slidePosition;
     CGSize _cardSize;
     CGPoint _cardPosition;
-    //CGFloat _offsetLegde;
     CGFloat _offsetCurrentView;
     UIPageControl *_pageControl;
     
