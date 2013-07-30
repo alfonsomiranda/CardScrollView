@@ -77,7 +77,6 @@
         [self cornerSquare:view];
         
         view.frame = frame;
-        [view setBackgroundColor:[UIColor whiteColor]];
         
         if (i != 0) {
             
@@ -104,8 +103,6 @@
     
     [layerView setMasksToBounds:NO];
     [layerView setCornerRadius:5.0];
-    [layerView setBorderWidth:1.0];
-    [layerView setBorderColor:[[UIColor whiteColor] CGColor]];
     [layerView setShadowColor:[[UIColor blackColor] CGColor]];
     [layerView setShadowOffset:CGSizeMake(0, 2)];
     layerView.shadowOpacity = 0.10;
