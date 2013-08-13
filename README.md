@@ -1,8 +1,10 @@
 CardScrollView
 ==============
 
+![CardScrollView](https://github.com/alfonsomiranda/CardScrollView/blob/master/ScreenShots/ScrollViewDemo.gif?raw=true)
+
 Installation
--------
+------------
 
 Add the CardScrollView folder to your project.
 
