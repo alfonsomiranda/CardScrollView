@@ -10,7 +10,6 @@
 #import "CardScrollView.h"
 
 
-#define WIDTH 320
 #define DIFF 30
 
 @implementation CardScrollView
@@ -30,7 +29,7 @@
             
         }
         
-        self.frame = CGRectMake(point.x, point.y, WIDTH, _cardSize.height);
+        self.frame = CGRectMake(point.x, point.y, [UIScreen mainScreen].bounds.size.width, _cardSize.height);
         
         CGRect scrollFrame;
         scrollFrame.origin.x = 0;
@@ -54,6 +53,12 @@
         
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    
+    [super layoutSubviews];
+    
 }
 
 - (void)initializeScrollView {
@@ -116,7 +121,14 @@
     
     CGFloat offset = _scrollView.contentOffset.x;
     CGFloat width = _scrollView.frame.size.width;
-    [_pageControl setCurrentPage:(offset+(width/2))/width];
+    
+    NSInteger currentPage = (offset+(width/2))/width;
+    
+    [_pageControl setCurrentPage:currentPage];
+    
+    if ([self.delegate respondsToSelector:@selector(pagingScrollView:scrolledToPage:)]) {
+        [self.delegate pagingScrollView:self scrolledToPage:currentPage];
+    }
   
 }
 

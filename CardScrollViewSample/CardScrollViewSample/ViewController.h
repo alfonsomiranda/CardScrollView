@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CardScrollView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<CardScrollViewDelegate>
 
 @end

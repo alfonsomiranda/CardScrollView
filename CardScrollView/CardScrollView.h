@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class CardScrollView;
+
+@protocol CardScrollViewDelegate <NSObject>
+
+@optional
+
+- (void)pagingScrollView:(CardScrollView *)pagingScrollView scrolledToPage:(NSInteger)currentPage;
+
+@end
+
 @interface CardScrollView : UIView <UIScrollViewDelegate> {
     
     UIScrollView *_scrollView;
@@ -21,6 +31,8 @@
     UIPageControl *_pageControl;
     
 }
+
+@property(nonatomic, assign) id<CardScrollViewDelegate> delegate;
 
 - (id)initWithViews:(NSArray *)views atPoint:(CGPoint)point;
 

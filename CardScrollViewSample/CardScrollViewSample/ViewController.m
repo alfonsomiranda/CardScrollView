@@ -40,6 +40,7 @@
     NSArray *views  = [[NSArray alloc] initWithObjects:view1, view2, view3, view4,view5, view6, view7, view8, nil];
     
     CardScrollView *cardScroll = [[CardScrollView alloc] initWithViews:views atPoint:CGPointMake(0, 50)];
+    cardScroll.delegate = self;
     [self.view addSubview:cardScroll];
     
 }
@@ -48,6 +49,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma -
+#pragma CardScrollViewDelegate
+
+- (void)pagingScrollView:(CardScrollView *)pagingScrollView scrolledToPage:(NSInteger)currentPage {
+    
+    NSLog(@"%d", currentPage);
+    
 }
 
 @end
